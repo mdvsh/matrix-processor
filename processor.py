@@ -68,8 +68,9 @@ class Matrix(object):
             return "The operation cannot be performed."
         return M
 
-    def transpose(self, m):
+    def transpose(self):
         M = Matrix(self.R, self.C)
+        m = self.matrix
         M.matrix = [[m[j][i] for j in range(self.C)] for i in range(self.R)]
         return M
 
@@ -96,15 +97,16 @@ class Matrix(object):
             v = A[0][0] * A[1][1] - A[1][0] * A[0][1]
             return v
         for c in range(len(A)):
-            d += ((-1) ** c) * A[0][c] * self.det_recur(self.get_minor(A, 0, c))
+            d += (-1 if (c%2) else 1) * A[0][c] * self.det_recur(self.get_minor(A, 0, c))
         return d
 
     def determinant(self):
-        if len(self.matrix[0]) == 1:
-            return self.matrix[0][0]
-        elif (self.R == self.C) and (self.R != 1):
-            M = self.matrix
-            return self.det_recur(M)
+        if (self.R == self.C):
+            if self.R == 1:
+                return self.matrix[0][0]
+            else:
+                M = self.matrix
+                return self.det_recur(M)
         else:
             return "The operation cannot be performed."
 
@@ -125,10 +127,12 @@ class Matrix(object):
                 cofact_r = []
                 for c in range(len(M)):
                     minor = self.get_minor(M, r, c)
-                    cofact_r.append(((-1) ** (r + c)) * self.det_recur(minor))
+                    cofact_r.append((-1 if ((r + c) % 2) else 1) * self.det_recur(minor))
                 cofacts.append(cofact_r)
-            cofact_T = self.transpose(cofacts)
-            return cofact_T * (1 / det)
+            cofact_matrix = Matrix(len(M), len(M))
+            cofact_matrix.matrix = cofacts
+            cofact_T = cofact_matrix.transpose()
+            return cofact_T / det
         else:
             return "This matrix doesn't have an inverse."
 
@@ -189,7 +193,7 @@ def init():
             A.make()
             print("The result is: ")
             if j == 1:
-                print(A.transpose(A.matrix))
+                print(A.transpose())
             elif j == 2:
                 print(A.side_transpose())
             elif j == 3:
