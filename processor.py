@@ -136,6 +136,24 @@ class Matrix(object):
         else:
             return "This matrix doesn't have an inverse."
 
+def getmatrices():
+    a, b = map(int, input("Enter size of first matrix: ").split())
+    A = Matrix(a, b)
+    print("Enter first matrix: ")
+    A.make()
+    c, d = map(int, input("Enter size of second matrix: ").split())
+    B = Matrix(c, d)
+    print("Enter second matrix: ")
+    B.make()
+
+    return (A, B)
+
+def getmatrix():
+    a, b = map(int, input("Enter matrix size: ").split())
+    A = Matrix(a, b)
+    print("Enter matrix: ")
+    A.make()
+    return A
 
 def init():
     transpose = {1: "Main diagonal", 2: "Side Diagonal", 3: "Vertical line", 4: "Horizontal line"}
@@ -149,21 +167,10 @@ def init():
         if i == 0:
             init_b = False
         elif i == 1:
-            a, b = map(int, input("Enter size of first matrix: ").split())
-            A = Matrix(a, b)
-            print("Enter first matrix: ")
-            A.make()
-            c, d = map(int, input("Enter size of second matrix: ").split())
-            B = Matrix(c, d)
-            print("Enter second matrix: ")
-            B.make()
-            print("The result is: ")
+            A, B = getmatrices()
             print(A + B)
         elif i == 2:
-            a, b = map(int, input("Enter size of matrix: ").split())
-            A = Matrix(a, b)
-            print("Enter matrix:")
-            A.make()
+            A = getmatrix()
             B = input("Enter constant: ")
             if B.isdigit():
                 B = int(B)
@@ -172,14 +179,7 @@ def init():
             print("The result is: ")
             print(A * B)
         elif i == 3:
-            a, b = map(int, input("Enter size of first matrix: ").split())
-            A = Matrix(a, b)
-            print("Enter first matrix: ")
-            A.make()
-            c, d = map(int, input("Enter size of second matrix: ").split())
-            B = Matrix(c, d)
-            print("Enter second matrix: ")
-            B.make()
+            A, B = getmatrices()
             print("The result is: ")
             print(A * B)
         elif i == 4:
@@ -187,10 +187,7 @@ def init():
             for g in transpose.keys():
                 print("{}. {}".format(g, transpose[g]))
             j = int(input("Your choice: "))
-            a, b = map(int, input("Enter matrix size: ").split())
-            A = Matrix(a, b)
-            print("Enter matrix: ")
-            A.make()
+            A = getmatrix()
             print("The result is: ")
             if j == 1:
                 print(A.transpose())
@@ -203,17 +200,11 @@ def init():
             else:
                 print("Choose an operation.")
         elif i == 5:
-            a, b = map(int, input("Enter matrix size: ").split())
-            A = Matrix(a, b)
-            print("Enter matrix: ")
-            A.make()
+            A = getmatrix()
             print("The result is: ")
             print(A.determinant())
         elif i == 6:
-            a, b = map(int, input("Enter matrix size: ").split())
-            A = Matrix(a, b)
-            print("Enter matrix: ")
-            A.make()
+            A = getmatrix()
             print("The result is: ")
             print(A.inverse())
 
