@@ -132,7 +132,7 @@ class Matrix(object):
             cofact_matrix = Matrix(len(M), len(M))
             cofact_matrix.matrix = cofacts
             cofact_T = cofact_matrix.transpose()
-            return cofact_T / det
+            return cofact_T  * (1 / det)
         else:
             return "This matrix doesn't have an inverse."
 
