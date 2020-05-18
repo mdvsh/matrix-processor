@@ -1,16 +1,16 @@
 # :abacus: Matrix Processor
-### *Recommended for anyone studying Matrices & Determinants in during Online Classes :sunglasses:* 
+### *Recommended for anyone studying Matrices & Determinants during Online Classes :sunglasses:* 
 
 This program can accomplish tasks such as addition, subtraction and multiplication of matrices along with finding determinants and inverses of a matrix. *May be* pretty helplful in online classes to calculate on the fly. 
-It can calculate ~95 % of NCERT questions.
+It can calculate ~85 % of NCERT questions. Trust me, I myself have used this in my math class and the teacher was really impressed.
 
-**MVP: Findind Inverse**
+**MVP: Finding Inverse**
 
 # Usage
 - **Cut / copy code source from `processor.py`** and paste to run via your favourite editor.
 - **repl.it button** *coming soon*
 
-# Demo
+# Demo [GIF Coming Soon]
 1. Matrix Multiplication
 ```console
 Numeric Matrix Processor
@@ -38,7 +38,7 @@ The result is:
 80 42 118
 30 18 44
 ```
-2. Finding inverse of a really complex matrix to show that this is tough.
+2. Finding inverse of a really complex matrix to show how cool this is.
     - Answer is correct. I checked on Wolfram-Alpha :-)
   
 ```console
@@ -69,6 +69,8 @@ The result is:
 ## Contributing
 The code may (most certainly) have bugs. Please feel free to open up an issue describing how I messed up (in a polite way please.) 
 
+- `soumitradev` helped with initial testing.
+
 --- 
 
 ## ToDO
@@ -76,3 +78,4 @@ The code may (most certainly) have bugs. Please feel free to open up an issue de
 - Try to find extreme cases when this doesn't work.
 - Beautify output
 - Debug ?!
+
