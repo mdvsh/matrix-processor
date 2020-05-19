@@ -119,6 +119,8 @@ class Matrix(object):
             return 1 / M[0][0]
         elif len(M) == 2:
             det = self.det_recur(M)
+            if det == 0:
+              return "This matrix doesn't have an inverse.\nReason: Singular Matrix"
             return [[M[1][1] / det, -1 * M[0][1] / det], [-1 * M[1][0] / det, M[0][0] / det]]
         elif (self.det_recur(M) != 0) and (self.R == self.C):
             det = self.determinant()
@@ -210,9 +212,4 @@ def init():
 
 
 init()
-"""
-2.65 3.54 3.88 8.99
-3.12 5.45 7.77 5.56
-5.31 2.23 2.33 9.81
-1.67 1.67 1.01 9.99
-"""
+

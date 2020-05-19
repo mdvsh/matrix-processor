@@ -75,7 +75,6 @@ The code may (most certainly) have bugs. Please feel free to open up an issue de
 
 ## ToDO
 - Add comments
-- Try to find extreme cases when this doesn't work.
 - Beautify output
-- Debug ?!
+
 
