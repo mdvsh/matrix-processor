@@ -1,6 +1,8 @@
 # :abacus: Matrix Processor
 ### *Recommended for anyone studying Matrices & Determinants during Online Classes :sunglasses:* 
 
+[![Run on Repl.it](https://repl.it/badge/github/PseudoCodeNerd/matrix-processor)](https://repl.it/github/PseudoCodeNerd/matrix-processor)
+
 This program can accomplish tasks such as addition, subtraction and multiplication of matrices along with finding determinants and inverses of a matrix. *May be* pretty helplful in online classes to calculate on the fly. 
 It can calculate ~85 % of NCERT questions. Trust me, I myself have used this in my math class and the teacher was really impressed.
 
