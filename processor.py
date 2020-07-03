@@ -165,9 +165,10 @@ def init():
         i = int(input("Your choice: "))
         if i == 0:
             init_b = False
-        elif i == 1:
+        elif i in [1, 3]:
             A, B = getmatrices()
-            print(A + B)
+            print("The result is: ")
+            print(A + B) if (i - 3) else print(A * B)
         elif i == 2:
             A = getmatrix()
             B = input("Enter constant: ")
@@ -175,10 +176,6 @@ def init():
                 B = int(B)
             else:
                 B = float(B)
-            print("The result is: ")
-            print(A * B)
-        elif i == 3:
-            A, B = getmatrices()
             print("The result is: ")
             print(A * B)
         elif i == 4:
@@ -198,14 +195,10 @@ def init():
                 print(options[j]())
             else:
                 print("Choose an operation.")
-        elif i == 5:
+        elif i in [5, 6]:
             A = getmatrix()
             print("The result is: ")
-            print(A.determinant())
-        elif i == 6:
-            A = getmatrix()
-            print("The result is: ")
-            print(A.inverse())
+            print([A.determinant, A.inverse][i - 5]())
 
 
 init()
