@@ -94,11 +94,11 @@ class Matrix(object):
             v = A[0][0] * A[1][1] - A[1][0] * A[0][1]
             return v
         for c in range(len(A)):
-            d += (-1 if (c%2) else 1) * A[0][c] * self.det_recur(self.get_minor(A, 0, c))
+            d += (-1 if c % 2 else 1) * A[0][c] * self.det_recur(self.get_minor(A, 0, c))
         return d
 
     def determinant(self):
-        if (self.R == self.C):
+        if self.R == self.C:
             if self.R == 1:
                 return self.matrix[0][0]
             else:
@@ -126,7 +126,7 @@ class Matrix(object):
                 cofact_r = []
                 for c in range(len(M)):
                     minor = self.get_minor(M, r, c)
-                    cofact_r.append((-1 if ((r + c) % 2) else 1) * self.det_recur(minor))
+                    cofact_r.append((-1 if (r + c) % 2 else 1) * self.det_recur(minor))
                 cofacts.append(cofact_r)
             cofact_matrix = Matrix(len(M), len(M))
             cofact_matrix.matrix = cofacts
@@ -189,13 +189,13 @@ def init():
             A = getmatrix()
             print("The result is: ")
             trans_dict = {
-                1: A.transpose(),
-                2: A.side_transpose(),
-                3: A.ver_transpose(),
-                4: A.hori_transpose()
+                1: A.transpose,
+                2: A.side_transpose,
+                3: A.ver_transpose,
+                4: A.hori_transpose
             }
             if j in options:
-                print(options[j])
+                print(options[j]())
             else:
                 print("Choose an operation.")
         elif i == 5:
