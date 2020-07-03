@@ -9,13 +9,10 @@ class Matrix(object):
         self.matrix = [[0 for c in range(self.C)] for r in range(self.R)]
 
     def check_dims(self, other):
-        if (self.R == other.R) and (self.C == other.C):
-            return True
-        else:
-            return False
+        return self.R == other.R and self.C == other.C
 
     def has_floats(self, inp):
-        return ((sum([elem.isdigit() for elem in inp])) < len(inp))
+        return sum(elem.isdigit() for elem in inp) < len(inp)
 
     def make(self):
         for i in range(self.R):
@@ -191,14 +188,14 @@ def init():
             j = int(input("Your choice: "))
             A = getmatrix()
             print("The result is: ")
-            if j == 1:
-                print(A.transpose())
-            elif j == 2:
-                print(A.side_transpose())
-            elif j == 3:
-                print(A.ver_transpose())
-            elif j == 4:
-                print(A.hori_transpose())
+            trans_dict = {
+                1: A.transpose(),
+                2: A.side_transpose(),
+                3: A.ver_transpose(),
+                4: A.hori_transpose()
+            }
+            if j in options:
+                print(options[j])
             else:
                 print("Choose an operation.")
         elif i == 5:
