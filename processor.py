@@ -126,7 +126,7 @@ class Matrix(object):
                 cofact_r = []
                 for c in range(len(M)):
                     minor = self.get_minor(M, r, c)
-                    cofact_r.append((-1 if (r + c) % 2 else 1) * self.det_recur(minor))
+                    cofact_r.append(-1 ** ((r + c) % 2) * self.det_recur(minor))
                 cofacts.append(cofact_r)
             cofact_matrix = Matrix(len(M), len(M))
             cofact_matrix.matrix = cofacts
