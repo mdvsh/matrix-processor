@@ -10,9 +10,9 @@ It can calculate ~85 % of NCERT questions. Trust me, I myself have used this in 
 
 # Usage
 - **Cut / copy code source from `processor.py`** and paste to run via your favourite editor.
-- **repl.it button** *coming soon*
+- **repl.it button** 
 
-# Demo [GIF Coming Soon]
+# Demo
 1. Matrix Multiplication
 ```console
 Numeric Matrix Processor
@@ -71,12 +71,14 @@ The result is:
 ## Contributing
 The code may (most certainly) have bugs. Please feel free to open up an issue describing how I messed up (in a polite way please.) 
 
-- `soumitradev` helped with initial testing.
+- `soumitradev` helped with initial testing and maintaining the repo.
+- `bangyen`
 
 --- 
 
-## ToDO
+## ToDo
 - Add comments
 - Beautify output
-
+- Better error handling for `make()`
+- Look into operations on 2x2 matrices.
 
