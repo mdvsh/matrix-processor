@@ -165,10 +165,16 @@ def init():
         i = int(input("Your choice: "))
         if i == 0:
             init_b = False
-        elif i in [1, 3]:
-            A, B = getmatrices()
+        elif i in [1, 3, 5, 6]:
+            A, B = getmatrices() if (i // 4) else (getmatrix(), 0)
             print("The result is: ")
-            print(A + B) if (i - 3) else print(A * B)
+            op_dict = {
+                1: lambda: A + B,
+                3: lambda: A * B,
+                5: A.determinant,
+                6: A.inverse
+            }
+            print(op_dict[i]())
         elif i == 2:
             A = getmatrix()
             B = input("Enter constant: ")
@@ -195,10 +201,6 @@ def init():
                 print(options[j]())
             else:
                 print("Choose an operation.")
-        elif i in [5, 6]:
-            A = getmatrix()
-            print("The result is: ")
-            print([A.determinant, A.inverse][i - 5]())
 
 
 init()
