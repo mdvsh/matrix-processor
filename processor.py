@@ -165,22 +165,20 @@ def init():
         i = int(input("Your choice: "))
         if i == 0:
             init_b = False
-        elif i == 1:
-            A, B = getmatrices()
-            print(A + B)
-        elif i == 2:
-            A = getmatrix()
-            B = input("Enter constant: ")
-            if B.isdigit():
-                B = int(B)
-            else:
-                B = float(B)
+        elif i in [1, 2, 3, 5, 6]:
+            A, B = (getmatrix(), 0) if (i > 4 or i == 2) else getmatrices()
+            if i == 2:
+                B = input("Enter constant: ")
+                B = int(B) if B.isdigit() else float(B)
             print("The result is: ")
-            print(A * B)
-        elif i == 3:
-            A, B = getmatrices()
-            print("The result is: ")
-            print(A * B)
+            op_dict = {
+                1: lambda: A + B,
+                2: lambda: A * B,
+                3: lambda: A * B,
+                5: A.determinant,
+                6: A.inverse
+            }
+            print(op_dict[i]())
         elif i == 4:
             print()
             for g in transpose.keys():
@@ -194,18 +192,10 @@ def init():
                 3: A.ver_transpose,
                 4: A.hori_transpose
             }
-            if j in options:
-                print(options[j]())
+            if j in trans_dict:
+                print(trans_dict[j]())
             else:
                 print("Choose an operation.")
-        elif i == 5:
-            A = getmatrix()
-            print("The result is: ")
-            print(A.determinant())
-        elif i == 6:
-            A = getmatrix()
-            print("The result is: ")
-            print(A.inverse())
 
 
 init()
