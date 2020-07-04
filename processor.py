@@ -166,7 +166,7 @@ def init():
         if i == 0:
             init_b = False
         elif i in [1, 2, 3, 5, 6]:
-            A, B = getmatrices() if (i // 4) else (getmatrix(), 0)
+            A, B = (getmatrix(), 0) if (i > 4 or i == 2) else getmatrices()
             if i == 2:
                 B = input("Enter constant: ")
                 B = int(B) if B.isdigit() else float(B)
