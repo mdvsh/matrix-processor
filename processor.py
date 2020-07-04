@@ -192,8 +192,8 @@ def init():
                 3: A.ver_transpose,
                 4: A.hori_transpose
             }
-            if j in options:
-                print(options[j]())
+            if j in trans_dict:
+                print(trans_dict[j]())
             else:
                 print("Choose an operation.")
 
